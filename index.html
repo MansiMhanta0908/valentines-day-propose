@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Letter For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fde2e4, #fadadd);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: 0.4s;
+    }
+
+    .envelope::before {
+      content: "💌";
+      font-size: 4rem;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .letter {
+      display: none;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 90%;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #d81b60;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      border: none;
+      background: #e91e63;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .proposal {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    #noBtn {
+      background: #cfd8dc;
+      color: #546e7a;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Envelope -->
+  <div class="envelope" id="envelope" onclick="openLetter()"></div>
+
+  <!-- Letter -->
+  <div class="letter" id="letter">
+    <img src="photo..jpg" alt="Us Together ❤️">
+
+    <h1>My Love ❤️</h1>
+    <p>
+      From the moment you walked into my life, everything felt warmer, safer, and brighter.
+      Even across the miles, you make me feel loved, welcomed, and deeply cared for.
+    </p>
+
+    <p>
+      You are the person who holds me when the world feels heavy, who makes me laugh when my heart feels tired,
+      and who brings light when I feel surrounded by darkness.  
+      Loving you hasn’t always been easy – long distance, waiting, missing, struggles –  
+      but loving you has always been worth it.
+    </p>
+
+    <p>
+      I promise to walk with you through hardships, silly fights, fun moments, late-night calls,
+      adventures we haven’t yet dreamed of, and all the ups and downs that life throws at us.
+      No matter how far we are, my heart is always right next to yours.
+    </p>
+
+    <p>
+      I have never met someone who makes me feel this deeply loved, this understood, this safe.
+      You are the best boyfriend, and I know in my heart you will be the best husband and the best dad someday.
+    </p>
+
+    <p><strong>I will love you no matter what. Always. Forever.</strong></p>
+    <p><strong>I love you, bujji ❤️</strong></p>
+
+    <button class="btn" onclick="showProposal()">Next 💖</button>
+  </div>
+
+  <!-- Proposal -->
+  <div class="letter proposal" id="proposal">
+    <h1>Will you be my Valentine for life? 💍</h1>
+    <p>
+      Will you choose me in every season, in distance and closeness,  
+      in struggle and success, in laughter and tears?
+    </p>
+
+    <div class="btn-container">
+      <button class="btn" onclick="celebrate()">Yes, Forever ❤️</button>
+      <button class="btn" id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+    }
+
+    function showProposal() {
+      document.getElementById('letter').style.display = 'none';
+      document.getElementById('proposal').style.display = 'block';
+    }
+
+    function moveButton() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+      btn.style.position = 'absolute';
+      btn.style.left = x + 'px';
+      btn.style.top = y + 'px';
+    }
+
+    function celebrate() {
+      document.getElementById('proposal').innerHTML = `
+        <h1>It's Us. Always. 💖</h1>
+        <p>Happy Propose Day, my love.</p>
+        <div style="font-size: 2rem;">👩‍❤️‍👨✨</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
